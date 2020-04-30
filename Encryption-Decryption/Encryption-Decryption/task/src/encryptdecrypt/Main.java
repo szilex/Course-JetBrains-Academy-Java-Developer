@@ -76,6 +76,24 @@ public class Main {
 
     }
 
+/*    private static String encrypt(String message, int shift) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < message.length(); i++) {
+            char encryptedCharacter = (char) (message.charAt(i) + shift);
+            stringBuilder.append(encryptedCharacter);
+        }
+        return stringBuilder.toString();
+    }
+
+    private static String decrypt(String message, int shift) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < message.length(); i++) {
+            char encryptedCharacter = (char) (message.charAt(i) - shift);
+            stringBuilder.append(encryptedCharacter);
+        }
+        return stringBuilder.toString();
+    }*/
+
     private static String getMessageFromFile(String fileName) {
         Path path = Paths.get(fileName);
         Path absolutePath = path.toAbsolutePath().normalize();

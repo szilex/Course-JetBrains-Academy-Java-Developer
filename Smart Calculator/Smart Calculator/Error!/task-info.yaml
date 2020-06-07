@@ -1,0 +1,147 @@
+type: edu
+custom_name: stage5
+files:
+- name: test/Test.java
+  visible: true
+  text: |
+    import calculator.Main;
+    import org.hyperskill.hstest.stage.StageTest;
+    import org.hyperskill.hstest.testcase.SimpleTestCase;
+
+    import java.util.List;
+
+    public class Test extends StageTest {
+
+        public Test() {
+            super(Main.class);
+        }
+
+        @Override
+        public List<SimpleTestCase> generate() {
+            return List.of(
+                    new SimpleTestCase(
+                            "100 + 200 - 300\n/exit",
+                            "0\nBye!"
+                    ),
+                    new SimpleTestCase(
+                            "4 + 6 - 8\n\n\n2 - 3 - 4\n\n8 + 7 - 4\n/exit",
+                            "2\n-5\n11\nBye!"
+                    ),
+                    new SimpleTestCase(
+                            "abc\n123+\n+15\n18 22\n\n-22\n22-\n/exit",
+                            "Invalid expression\n" +
+                                    "Invalid expression\n" +
+                                    "15\n" +
+                                    "Invalid expression\n" +
+                                    "-22\n" +
+                                    "Invalid expression\n" +
+                                    "Bye!"
+                    ),
+                    new SimpleTestCase(
+                            "/go\n/exit",
+                            "Unknown command\nBye!"
+                    )
+            );
+        }
+    }
+  learner_created: false
+- name: src/calculator/Main.java
+  visible: true
+  text: |
+    package calculator;
+
+    import java.util.Arrays;
+    import java.util.List;
+    import java.util.Scanner;
+    import java.util.regex.Matcher;
+    import java.util.regex.Pattern;
+    import java.util.stream.Collectors;
+
+    public class Main {
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            boolean repeatLoop = true;
+            while (scanner.hasNext() && repeatLoop) {
+                String line = scanner.nextLine();
+                line = editInput(line);
+                //System.out.println(line);
+                switch (line) {
+                    case "/help" :
+                        System.out.println("The program calculates the sum of numbers");
+                        break;
+                    case "/exit" :
+                        repeatLoop = false;
+                        break;
+                    default:
+                        if (!line.isEmpty()) {
+                            int result = calculateResult(line);
+                            System.out.println(result);
+                        }
+
+                        break;
+                }
+            }
+            System.out.println("Bye!");
+        }
+
+        public static String editInput(String input) {
+            Pattern separatorPattern = Pattern.compile("\\s+");
+            Pattern plusPattern = Pattern.compile("[+]+");
+            Pattern evenMinusPattern = Pattern.compile("(--)+");
+            Pattern oddMinusPattern = Pattern.compile("-(--)+");
+
+            Matcher separatorMatcher = separatorPattern.matcher(input);
+            input = separatorMatcher.replaceAll(" ");
+
+            Matcher plusMatcher = plusPattern.matcher(input);
+            input = plusMatcher.replaceAll("+");
+
+            Matcher oddMinusMatcher = oddMinusPattern.matcher(input);
+            input = oddMinusMatcher.replaceAll("-");
+
+            Matcher evenMinusMatcher = evenMinusPattern.matcher(input);
+            input = evenMinusMatcher.replaceAll("+");
+
+            return input;
+        }
+
+        public static int calculateResult(String input) {
+
+            int sum = 0;
+            List<String> stringValues = Arrays.asList(input.split(" "));
+
+            boolean add = true;
+            for(String word : stringValues) {
+                if (word.matches("\\+")) {
+                    add = true;
+                } else if (word.matches("-")) {
+                    add = false;
+                } else {
+                    try {
+                        if (add) {
+                            sum += Integer.parseInt(word);
+                        } else {
+                            sum -= Integer.parseInt(word);
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println(input);
+                    }
+
+                }
+            }
+
+            /*try {
+                List<Integer> values= Arrays.stream(input.split(" ")).map(Integer::parseInt).collect(Collectors.toList());
+                System.out.println(values.stream().collect(Collectors.summingInt(Integer::intValue)));
+            } catch (NumberFormatException e) {
+
+            }*/
+
+            return sum;
+        }
+    }
+  learner_created: true
+feedback_link: https://hyperskill.org/projects/42/stages/224/implement
+status: Solved
+record: 5

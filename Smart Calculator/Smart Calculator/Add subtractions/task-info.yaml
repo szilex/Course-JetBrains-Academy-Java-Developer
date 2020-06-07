@@ -1,0 +1,80 @@
+type: edu
+custom_name: stage4
+files:
+- name: test/Test.java
+  visible: true
+  text: |
+    import calculator.Main;
+    import org.hyperskill.hstest.stage.StageTest;
+    import org.hyperskill.hstest.testcase.SimpleTestCase;
+
+    import java.util.List;
+
+    public class Test extends StageTest {
+
+        public Test() {
+            super(Main.class);
+        }
+
+        @Override
+        public List<SimpleTestCase> generate() {
+            return List.of(
+                    new SimpleTestCase(
+                            "100 + 200 - 300\n/exit",
+                            "0\nBye!"
+                    ),
+                    new SimpleTestCase(
+                            "4 + 6 - 8\n2 - 3 - 4\n/exit",
+                            "2\n-5\nBye!"
+                    ),
+                    new SimpleTestCase(
+                            "8\n\n-2 + 4 - 5 + 6\n9 +++ 10 -- 8\n3 --- 5\n14     -  12\n/exit",
+                            "8\n3\n27\n-2\n2\nBye!"
+                    )
+            );
+        }
+
+    }
+  learner_created: false
+- name: src/calculator/Main.java
+  visible: true
+  text: |
+    package calculator;
+
+    import java.util.Arrays;
+    import java.util.List;
+    import java.util.Scanner;
+    import java.util.stream.Collectors;
+
+    public class Main {
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            boolean repeatLoop = true;
+            while (scanner.hasNext() && repeatLoop) {
+                String line = scanner.nextLine();
+
+                switch (line) {
+                    case "/help" :
+                        System.out.println("The program calculates the sum of numbers");
+                        break;
+                    case "/exit" :
+                        repeatLoop = false;
+                        break;
+                    default:
+                        try {
+                            List<Integer> values= Arrays.stream(line.split(" ")).map(Integer::parseInt).collect(Collectors.toList());
+                            System.out.println(values.stream().collect(Collectors.summingInt(Integer::intValue)));
+                        } catch (NumberFormatException e) {
+
+                        }
+                        break;
+                }
+            }
+            System.out.println("Bye!");
+        }
+    }
+  learner_created: true
+feedback_link: https://hyperskill.org/projects/42/stages/223/implement
+status: Solved
+record: 4

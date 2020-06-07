@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="delegatedBuild" value="false" />
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#JAVA_INTERNAL" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Problems/Check IP address" />
+            <option value="$PROJECT_DIR$/Problems/Creating a map" />
+            <option value="$PROJECT_DIR$/Problems/Creating queue" />
+            <option value="$PROJECT_DIR$/Problems/Find a word with a given length" />
+            <option value="$PROJECT_DIR$/Problems/Greedy load balance" />
+            <option value="$PROJECT_DIR$/Problems/Illegal identifiers" />
+            <option value="$PROJECT_DIR$/Problems/In the middle of a word" />
+            <option value="$PROJECT_DIR$/Problems/Leap year" />
+            <option value="$PROJECT_DIR$/Problems/Number parsing" />
+            <option value="$PROJECT_DIR$/Problems/Remove HTML tags" />
+            <option value="$PROJECT_DIR$/Problems/Remove comments" />
+            <option value="$PROJECT_DIR$/Problems/Remove extra spaces" />
+            <option value="$PROJECT_DIR$/Problems/Vehicle registration number" />
+            <option value="$PROJECT_DIR$/Problems/Which brackets are balanced" />
+            <option value="$PROJECT_DIR$/Smart Calculator/task" />
+            <option value="$PROJECT_DIR$/util" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

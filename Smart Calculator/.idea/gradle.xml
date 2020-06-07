@@ -15,7 +15,10 @@
             <option value="$PROJECT_DIR$/Problems/Check IP address" />
             <option value="$PROJECT_DIR$/Problems/Creating a map" />
             <option value="$PROJECT_DIR$/Problems/Creating queue" />
+            <option value="$PROJECT_DIR$/Problems/Extracting big numbers from a text" />
+            <option value="$PROJECT_DIR$/Problems/Extracting words from a text" />
             <option value="$PROJECT_DIR$/Problems/Find a word with a given length" />
+            <option value="$PROJECT_DIR$/Problems/Find all passwords" />
             <option value="$PROJECT_DIR$/Problems/Greedy load balance" />
             <option value="$PROJECT_DIR$/Problems/Illegal identifiers" />
             <option value="$PROJECT_DIR$/Problems/In the middle of a word" />

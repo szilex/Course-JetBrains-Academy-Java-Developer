@@ -2,7 +2,6 @@ package editor;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -82,33 +81,6 @@ public class TextEditor extends JFrame {
         menuPanel.add(saveButton);
 
         add(menuPanel, BorderLayout.NORTH);
-
-        JMenuBar menuBar = new JMenuBar();
-        setJMenuBar(menuBar);
-
-        JMenu fileMenu = new JMenu("File");
-        fileMenu.setName("MenuFile");
-        fileMenu.setMnemonic(KeyEvent.VK_F);
-        menuBar.add(fileMenu);
-
-        JMenuItem loadMenuItem = new JMenuItem("Load");
-        loadMenuItem.setName("MenuLoad");
-        JMenuItem saveMenuItem = new JMenuItem("MenuSave");
-        saveMenuItem.setName("MenuSave");
-        JMenuItem exitMenuItem = new JMenuItem("MenuExit");
-        exitMenuItem.setName("MenuExit");
-
-        loadMenuItem.addActionListener(loadButton.getActionListeners()[0]);
-        saveMenuItem.addActionListener(saveButton.getActionListeners()[0]);
-        exitMenuItem.addActionListener(e -> {
-            dispose();
-        });
-
-        fileMenu.add(loadMenuItem);
-        fileMenu.add(saveMenuItem);
-
-        fileMenu.addSeparator();
-        fileMenu.add(exitMenuItem);
 
 
     }

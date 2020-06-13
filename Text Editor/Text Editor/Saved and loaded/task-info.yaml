@@ -354,7 +354,7 @@ files:
             add(textArea);
         }
     }
-  learner_created: true
+  learner_created: false
 - name: src/editor/ApplicationRunner.java
   visible: true
   text: |
@@ -366,7 +366,7 @@ files:
             new TextEditor();
         }
     }
-  learner_created: true
+  learner_created: false
 feedback_link: https://hyperskill.org/projects/38/stages/202/implement
 status: Solved
-record: 2
+record: 1

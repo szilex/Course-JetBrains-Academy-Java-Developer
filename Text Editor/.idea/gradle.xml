@@ -8,17 +8,9 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="#JAVA_INTERNAL" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/Problems/An anonymous class with a single method" />
-            <option value="$PROJECT_DIR$/Problems/Creating a closure" />
-            <option value="$PROJECT_DIR$/Problems/Iterations" />
-            <option value="$PROJECT_DIR$/Problems/Max of two integers" />
-            <option value="$PROJECT_DIR$/Problems/Returning from a method" />
-            <option value="$PROJECT_DIR$/Problems/Ternary predicate" />
-            <option value="$PROJECT_DIR$/Problems/The minimum value of an array" />
             <option value="$PROJECT_DIR$/Text Editor/task" />
             <option value="$PROJECT_DIR$/util" />
           </set>
